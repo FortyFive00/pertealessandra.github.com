@@ -1,0 +1,163 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@300;400;600&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+  flex-direction: column;
+  position: relative;
+  box-sizing: border-box;
+}
+.controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.controls button {
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 20px;
+  margin-right: 10px;
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.controls button:hover {
+  background-color: #ff3d30;
+  transform: scale(1.1);
+}
+
+.controls label {
+  margin-right: 10px;
+  font-size: 18px;
+  color: #ff6f61;
+}
+
+.header {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+.header h1 {
+  margin: 0;
+  font-family: "Great Vibes", cursive;
+  font-size: 28px;
+  color: #ff6f61;
+}
+
+.header nav {
+  display: flex;
+  align-items: center;
+}
+
+.header nav a {
+  margin-left: 20px;
+  font-size: 18px;
+  color: #ff6f61;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.gallery-container {
+  margin-top: 80px;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.gallery-item {
+  width: calc(33% - 30px);
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  border-radius: 15px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 700px; /* Aumenta l'altezza */
+  object-fit: cover; /* Mantieni il rapporto di aspetto */
+  display: block;
+}
+
+.gallery-item video {
+  width: 100%;
+  height: 900px; /* Imposta un'altezza fissa come per le immagini */
+  object-fit: cover; /* Mantieni il rapporto di aspetto */
+}
+
+.divider-text {
+  width: 100%;
+  text-align: center;
+  margin: 40px 0;
+  font-size: 24px;
+  font-family: "Great Vibes", cursive;
+  color: #ff6f61;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .gallery-item {
+    width: calc(50% - 30px);
+  }
+
+  .header h1 {
+    font-size: 24px;
+  }
+
+  .header nav a {
+    font-size: 16px;
+    margin-left: 10px;
+  }
+
+  /* Hide volume control on mobile */
+  #volume-slider {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-item {
+    width: calc(100% - 30px);
+  }
+
+  .header h1 {
+    font-size: 20px;
+  }
+
+  .header nav a {
+    font-size: 14px;
+    margin-left: 5px;
+  }
+}

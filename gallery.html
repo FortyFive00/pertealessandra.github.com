@@ -5,171 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="apple-icon-144x144.ico" />
     <title>Galleria dei Ricordi</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@300;400;600&display=swap');
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Open Sans', sans-serif;
-            overflow-y: scroll;
-            overflow-x: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
-            flex-direction: column;
-            position: relative;
-            box-sizing: border-box;
-        }
-        .controls {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .controls button {
-            background-color: #ff6f61;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 20px;
-            margin-right: 10px;
-            transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
-        }
-
-        .controls button:hover {
-            background-color: #ff3d30;
-            transform: scale(1.1);
-        }
-
-        .controls label {
-            margin-right: 10px;
-            font-size: 18px;
-            color: #ff6f61;
-        }
-
-        .header {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.5);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            box-sizing: border-box;
-            flex-wrap: wrap;
-        }
-
-        .header h1 {
-            margin: 0;
-            font-family: 'Great Vibes', cursive;
-            font-size: 28px;
-            color: #ff6f61;
-        }
-
-        .header nav {
-            display: flex;
-            align-items: center;
-        }
-
-        .header nav a {
-            margin-left: 20px;
-            font-size: 18px;
-            color: #ff6f61;
-            text-decoration: none;
-            transition: color 0.2s ease-in-out;
-        }
-
-        .gallery-container {
-            margin-top: 80px;
-            padding: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .gallery-item {
-            width: calc(33% - 30px);
-            position: relative;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            border-radius: 15px;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.05);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 700px; /* Aumenta l'altezza */
-            object-fit: cover; /* Mantieni il rapporto di aspetto */
-            display: block;
-        }
-
-        .gallery-item video {
-            width: 100%;
-            height: 900px; /* Imposta un'altezza fissa come per le immagini */
-            object-fit: cover; /* Mantieni il rapporto di aspetto */
-        }
-
-        .divider-text {
-            width: 100%;
-            text-align: center;
-            margin: 40px 0;
-            font-size: 24px;
-            font-family: 'Great Vibes', cursive;
-            color: #ff6f61;
-            background: rgba(255, 255, 255, 0.7);
-            padding: 10px;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        @media (max-width: 768px) {
-            .gallery-item {
-                width: calc(50% - 30px);
-            }
-
-            .header h1 {
-                font-size: 24px;
-            }
-
-            .header nav a {
-                font-size: 16px;
-                margin-left: 10px;
-            }
-
-            /* Hide volume control on mobile */
-            #volume-slider {
-                display: none;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .gallery-item {
-                width: calc(100% - 30px);
-            }
-
-            .header h1 {
-                font-size: 20px;
-            }
-
-            .header nav a {
-                font-size: 14px;
-                margin-left: 5px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="gallery.css">
+   
 </head>
 <body>
     <div class="header">
@@ -184,7 +21,7 @@
         </div>
     </div>
     <div class="gallery-container">
-        <div class="gallery-item">
+        <!-- <div class="gallery-item">
             <img src="Foto0.jpg" alt="Foto 0">
         </div>
         <div class="gallery-item">
@@ -419,79 +256,15 @@
         <div class="divider-text">
             Tutti questi sono ricordi che abbiamo creato dopo lungo tempo e io, Alessandra, non voglio perdere tutto ciò.<br>
             Voglio renderti felice perchè ti amo quindi per favore, prova ad amare anche tu questo tuo folle ragazzo che non riesce a lasciarti andare
-        </div>
+        </div> -->
     </div>
     <audio id="background-music" autoplay>
-        <source src="thousand.mp3" type="audio/mpeg">
+        <source src="./music/thousand.mp3" type="audio/mpeg">
         Il tuo browser non supporta l'elemento audio.
     </audio>
-    <script>
-        const songs = ["thousand.mp3","Perfect.mp3" ,"talking.mp3","growold.mp3"];
-        let currentSongIndex = 0;
-        const audio = document.getElementById('background-music');
-    
-        document.getElementById('next-song-btn').addEventListener('click', function() {
-            playNextSong();
-        });
-    
-        function playNextSong() {
-            currentSongIndex = (currentSongIndex + 1) % songs.length;
-            audio.src = songs[currentSongIndex];
-            audio.play().catch(error => {
-                console.error("Errore nella riproduzione dell'audio: ", error);
-            });
-        }
+  
 
-        audio.addEventListener('ended', function() {
-            playNextSong();
-        });
-    
-        document.getElementById('volume-slider').addEventListener('input', function() {
-            audio.volume = this.value;
-        });
-    
-        function saveAudioState() {
-            localStorage.setItem('audioCurrentTime', audio.currentTime);
-            localStorage.setItem('currentSongIndex', currentSongIndex);
-            localStorage.setItem('audioVolume', audio.volume);
-            audio.pause();
-        }
-    
-        function loadAudioState() {
-            const savedTime = localStorage.getItem('audioCurrentTime');
-            const savedIndex = localStorage.getItem('currentSongIndex');
-            const savedVolume = localStorage.getItem('audioVolume');
-    
-            if (savedTime !== null) {
-                audio.currentTime = savedTime;
-            }
-            if (savedIndex !== null) {
-                currentSongIndex = parseInt(savedIndex);
-                audio.src = songs[currentSongIndex];
-            }
-            if (savedVolume !== null) {
-                audio.volume = savedVolume;
-            }
-    
-            audio.play().catch(error => {
-                console.error("Errore nella riproduzione dell'audio: ", error);
-            });
-        }
-    
-        window.addEventListener('load', function() {
-            loadAudioState();
-            // Controlla se il browser blocca l'autoplay
-            audio.play().catch(() => {
-                // In caso di blocco, riproduci l'audio al primo interazione dell'utente
-                window.addEventListener('click', function() {
-                    audio.play().catch(error => {
-                        console.error("Errore nella riproduzione dell'audio: ", error);
-                    });
-                }, { once: true });
-            });
-        });
-
-        window.addEventListener('beforeunload', saveAudioState);
-    </script>
+    <script src="data.js"></script>
+    <script src="gallery.js"></script>
 </body>
 </html>
