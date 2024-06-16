@@ -1,39 +1,15 @@
-const songs = ["thousand.mp3", "Perfect.mp3", "talking.mp3", "growold.mp3"]; // Lista delle canzoni
-let currentSongIndex = 0;
-
 document.getElementById("show-poem-btn").addEventListener("click", function () {
-  document.getElementById("hidden-content").classList.remove("hidden-content");
-  this.style.opacity = "0";
-  setTimeout(() => {
-    this.style.display = "none";
-  }, 500);
+  audio.volume = 0.1;
+  audio.play();
+  const hiddenContent = document.querySelector("#hidden-content");
 
-  const audio = document.getElementById("background-music");
-  audio.src = songs[currentSongIndex]; // Imposta la canzone corrente
-  audio.play().catch((error) => {
-    console.error("Errore nella riproduzione dell'audio: ", error);
-  });
-
-  // Event listener per passare alla prossima canzone quando la corrente finisce
-  audio.addEventListener("ended", playNextSong);
-});
-
-document.getElementById("next-song-btn").addEventListener("click", function () {
-  playNextSong();
-});
-
-function playNextSong() {
-  const audio = document.getElementById("background-music");
-  currentSongIndex = (currentSongIndex + 1) % songs.length;
-  audio.src = songs[currentSongIndex];
-  audio.play().catch((error) => {
-    console.error("Errore nella riproduzione dell'audio: ", error);
-  });
-}
-
-document.getElementById("volume-slider").addEventListener("input", function () {
-  const audio = document.getElementById("background-music");
-  audio.volume = this.value;
+  if (hiddenContent) {
+    hiddenContent.classList.remove("hidden-content");
+    this.style.opacity = "0";
+    setTimeout(() => {
+      this.style.display = "none";
+    }, 500);
+  }
 });
 
 let slideIndex = 0;
